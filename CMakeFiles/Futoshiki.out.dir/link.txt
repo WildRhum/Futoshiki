@@ -1,0 +1,1 @@
+/usr/bin/cc   -Wall -W -std=c99 -pedantic -I.    CMakeFiles/Futoshiki.out.dir/main.c.o  -o Futoshiki.out -rdynamic 

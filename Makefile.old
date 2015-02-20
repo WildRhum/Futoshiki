@@ -1,0 +1,32 @@
+SHELL 	= /bin/bash
+CC 		= gcc
+CFLAGS	= -Wall -W -std=c99 -pedantic -I.
+
+EXECS 	= main
+LIBS	=
+
+.c.o :
+	$(CC) -c $(CFLAGS) $*.c
+.h.o :
+	$(CC) -c $(CFLAGS) $*.h
+
+all :: clean
+all :: CFLAGS += -O3
+all :: $(EXECS)
+
+debug :: clean
+debug :: CFLAGS += -DDEBUG
+debug :: $(EXECS)
+
+$(EXECS) : %: %.o
+	$(CC) -o $@.out $@.o
+	
+clean ::
+	\rm -f *.o core && rm -f *out core
+	
+distclean :: clean
+	\rm -f *% $(EXECS) $(EXECSUTIL) $(EXECSTIMER)
+
+help ::
+	@echo "Options du make : help all clean distclean"
+	

@@ -1,0 +1,1 @@
+/usr/bin/cc      CMakeFiles/Futoshiki.dir/main.c.o  -o Futoshiki -rdynamic 
